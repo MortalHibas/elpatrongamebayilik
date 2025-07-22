@@ -239,6 +239,82 @@ const AdminPanel = () => {
             </div>
           </TabsContent>
 
+          {/* Discount Controls */}
+          <TabsContent value="discounts">
+            <div className="space-y-6">
+              <Card className="bg-[#1a1f35]/50 border-[#00C6FF]/10">
+                <CardHeader>
+                  <CardTitle className="text-white flex items-center gap-2">
+                    <Percent className="w-5 h-5 text-[#00C6FF]" />
+                    İndirim Yönetimi
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-8">
+                  {/* Enable/Disable Discounts */}
+                  <div className="flex items-center justify-between p-6 bg-gradient-to-r from-[#00C6FF]/5 to-[#00FF7F]/5 border border-[#00C6FF]/20 rounded-xl">
+                    <div className="space-y-1">
+                      <h3 className="text-lg font-semibold text-white">İndirim Görünürlüğü</h3>
+                      <p className="text-sm text-gray-400">Sitedeki tüm indirim bölümlerini göster/gizle</p>
+                    </div>
+                    <Switch 
+                      checked={settings.showDiscounts}
+                      onCheckedChange={(checked) => handleSettingChange('showDiscounts', checked)}
+                      className="data-[state=checked]:bg-[#00C6FF]"
+                    />
+                  </div>
+
+                  {/* Pricing Section Discount Text */}
+                  <div className="space-y-3">
+                    <label className="text-sm font-medium text-gray-300">
+                      Fiyatlandırma Bölümü İndirim Metni
+                    </label>
+                    <Input
+                      value={settings.discountText}
+                      onChange={(e) => handleSettingChange('discountText', e.target.value)}
+                      placeholder="Özel İndirim: İlk Ay %50"
+                      className="bg-[#101828] border-[#00C6FF]/20 text-white focus:border-[#00C6FF]"
+                      disabled={!settings.showDiscounts}
+                    />
+                  </div>
+
+                  {/* Final CTA Discount Text */}
+                  <div className="space-y-3">
+                    <label className="text-sm font-medium text-gray-300">
+                      Son Çağrı Bölümü İndirim Metni
+                    </label>
+                    <Input
+                      value={settings.finalDiscountText}
+                      onChange={(e) => handleSettingChange('finalDiscountText', e.target.value)}
+                      placeholder="⚡ Sınırlı Süre: İlk 100 Kayıt %50 İndirim"
+                      className="bg-[#101828] border-[#00C6FF]/20 text-white focus:border-[#00C6FF]"
+                      disabled={!settings.showDiscounts}
+                    />
+                  </div>
+
+                  {/* Preview */}
+                  <div className="p-4 bg-gradient-to-r from-[#101828]/50 to-[#1a1f35]/50 border border-[#00C6FF]/10 rounded-xl">
+                    <h4 className="text-sm font-semibold text-[#00C6FF] mb-3">🔍 Önizleme</h4>
+                    
+                    {settings.showDiscounts ? (
+                      <div className="space-y-4">
+                        <div className="flex items-center gap-2 px-3 py-1 bg-[#00FF7F]/10 border border-[#00FF7F]/20 rounded-full w-fit">
+                          <div className="w-3 h-3 bg-[#00FF7F] rounded-full"></div>
+                          <span className="text-[#00FF7F] text-xs font-semibold">{settings.discountText}</span>
+                        </div>
+                        
+                        <div className="p-4 bg-gradient-to-r from-[#00C6FF]/5 to-[#00FF7F]/5 border border-[#00C6FF]/20 rounded-xl">
+                          <div className="text-sm font-bold text-white">{settings.finalDiscountText}</div>
+                        </div>
+                      </div>
+                    ) : (
+                      <p className="text-xs text-gray-400">İndirimler gizli - müşteriler herhangi bir indirim mesajı görmeyecek</p>
+                    )}
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </TabsContent>
+
           {/* Legal Texts */}
           <TabsContent value="legal">
             <div className="space-y-6">
