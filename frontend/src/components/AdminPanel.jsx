@@ -144,7 +144,10 @@ const AdminPanel = () => {
 
       {/* Main Content */}
       <div className="container mx-auto px-6 py-8">
-        <Tabs defaultValue="settings" className="space-y-6">
+        {(settingsLoading || packageLinksLoading || legalTextsLoading) ? (
+          <LoadingSpinner size="lg" text="Yükleniyor..." />
+        ) : (
+          <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
           {/* Tab Navigation */}
           <TabsList className="bg-[#1a1f35]/50 border border-[#00C6FF]/10">
             <TabsTrigger value="settings" className="data-[state=active]:bg-[#00C6FF]/20 data-[state=active]:text-[#00C6FF]">
