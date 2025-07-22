@@ -418,6 +418,7 @@ const AdminPanel = () => {
             </div>
           </TabsContent>
         </Tabs>
+        )}
       </div>
     </div>
   );
