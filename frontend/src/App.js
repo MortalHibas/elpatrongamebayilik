@@ -82,20 +82,36 @@ const LandingPage = () => {
   );
 };
 
+// Protected Admin Route Component
 const AdminRoute = () => {
-  return <AdminPanel />;
+  const { isAuthenticated, isLoading } = useAuth();
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-[#101828] to-[#0f1220] flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-16 h-16 border-4 border-[#00C6FF] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-gray-400">Yetkilendirme kontrol ediliyor...</p>
+        </div>
+      </div>
+    );
+  }
+
+  return isAuthenticated ? <AdminPanel /> : <LoginPage onLogin={() => window.location.reload()} />;
 };
 
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/admin" element={<AdminRoute />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <AuthProvider>
+      <div className="App">
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/admin" element={<AdminRoute />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </AuthProvider>
   );
 }
 
