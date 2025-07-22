@@ -350,15 +350,15 @@ const AdminPanel = () => {
                   <div className="p-4 bg-gradient-to-r from-[#101828]/50 to-[#1a1f35]/50 border border-[#00C6FF]/10 rounded-xl">
                     <h4 className="text-sm font-semibold text-[#00C6FF] mb-3">🔍 Önizleme</h4>
                     
-                    {settings.showDiscounts ? (
+                    {localSettings.showDiscounts ? (
                       <div className="space-y-4">
                         <div className="flex items-center gap-2 px-3 py-1 bg-[#00FF7F]/10 border border-[#00FF7F]/20 rounded-full w-fit">
                           <div className="w-3 h-3 bg-[#00FF7F] rounded-full"></div>
-                          <span className="text-[#00FF7F] text-xs font-semibold">{settings.discountText}</span>
+                          <span className="text-[#00FF7F] text-xs font-semibold">{localSettings.discountText}</span>
                         </div>
                         
                         <div className="p-4 bg-gradient-to-r from-[#00C6FF]/5 to-[#00FF7F]/5 border border-[#00C6FF]/20 rounded-xl">
-                          <div className="text-sm font-bold text-white">{settings.finalDiscountText}</div>
+                          <div className="text-sm font-bold text-white">{localSettings.finalDiscountText}</div>
                         </div>
                       </div>
                     ) : (
