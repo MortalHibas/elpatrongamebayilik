@@ -103,6 +103,10 @@ const AdminPanel = () => {
               <Package className="w-4 h-4 mr-2" />
               Paket Yönetimi
             </TabsTrigger>
+            <TabsTrigger value="discounts" className="data-[state=active]:bg-[#00C6FF]/20 data-[state=active]:text-[#00C6FF]">
+              <Percent className="w-4 h-4 mr-2" />
+              İndirim Kontrolü
+            </TabsTrigger>
             <TabsTrigger value="legal" className="data-[state=active]:bg-[#00C6FF]/20 data-[state=active]:text-[#00C6FF]">
               <FileText className="w-4 h-4 mr-2" />
               Yasal Metinler
