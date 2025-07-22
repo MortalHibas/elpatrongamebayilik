@@ -167,7 +167,10 @@ export const adminData = {
     popularPackageIndex: 1, // Orta Paket is popular by default
     whatsappNumber: "905551234567",
     heroBackgroundImage: "",
-    ctaBackgroundImage: ""
+    ctaBackgroundImage: "",
+    showDiscounts: true, // Controls discount visibility
+    discountText: "Özel İndirim: İlk Ay %50",
+    finalDiscountText: "⚡ Sınırlı Süre: İlk 100 Kayıt %50 İndirim"
   },
   packageLinks: {
     basic: "#basic-package",
