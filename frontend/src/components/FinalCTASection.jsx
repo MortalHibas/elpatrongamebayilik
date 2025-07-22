@@ -5,6 +5,8 @@ import { finalCtaData } from '../data/mock';
 import useSettings from '../hooks/useSettings';
 
 const FinalCTASection = ({ onCTA }) => {
+  const { settings } = useSettings();
+  
   return (
     <section className="py-24 bg-gradient-to-br from-[#0f1220] via-[#101828] to-[#1a1f35] relative overflow-hidden">
       {/* Background Effects */}
