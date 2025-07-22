@@ -88,7 +88,7 @@ const PricingSection = ({ onPackageSelect }) => {
                   <Button
                     onClick={() => onPackageSelect(pkg.name)}
                     className={`w-full py-6 rounded-xl font-semibold text-lg transition-all duration-300 ${
-                      pkg.popular
+                      pkg.popular || (settings && settings.popularPackageIndex === index)
                         ? 'bg-gradient-to-r from-[#00C6FF] to-[#00FF7F] hover:from-[#00A8D8] hover:to-[#00E06B] text-white shadow-lg hover:shadow-xl hover:shadow-[#00C6FF]/25'
                         : 'bg-gradient-to-r from-[#1a1f35] to-[#101828] border border-[#00C6FF]/30 text-[#00C6FF] hover:bg-gradient-to-r hover:from-[#00C6FF]/10 hover:to-[#00FF7F]/10 hover:border-[#00C6FF]/50'
                     }`}
