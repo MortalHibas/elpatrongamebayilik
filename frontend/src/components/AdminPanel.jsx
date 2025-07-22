@@ -132,9 +132,10 @@ const AdminPanel = () => {
                 onClick={handleSave}
                 size="sm"
                 className="bg-gradient-to-r from-[#00C6FF] to-[#00FF7F] hover:from-[#00A8D8] hover:to-[#00E06B] text-white"
+                disabled={settingsLoading || packageLinksLoading || legalTextsLoading}
               >
                 <Save className="w-4 h-4 mr-2" />
-                Kaydet
+                {saveMessage || 'Kaydet'}
               </Button>
             </div>
           </div>
