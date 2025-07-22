@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import "./App.css";
+import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import axios from "axios";
 
@@ -14,6 +13,8 @@ import FinalCTASection from "./components/FinalCTASection";
 import Footer from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
 import AdminPanel from "./components/AdminPanel";
+import LoginPage from "./components/LoginPage";
+import { AuthProvider, useAuth } from "./hooks/useAuth";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
