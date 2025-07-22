@@ -91,9 +91,7 @@ const AdminPanel = () => {
   };
 
   const togglePreview = () => {
-    if (!showPreview) {
-      window.open('/', '_blank');
-    }
+    window.open('/', '_blank');
   };
 
   return (
