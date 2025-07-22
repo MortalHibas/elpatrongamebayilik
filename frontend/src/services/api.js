@@ -116,6 +116,69 @@ export const contentAPI = {
   },
 };
 
+// Auth API
+export const authAPI = {
+  login: async (password) => {
+    try {
+      const response = await apiClient.post('/auth/login', { password });
+      return response.data;
+    } catch (error) {
+      console.error('Login failed:', error);
+      throw error;
+    }
+  },
+
+  verifyToken: async (token) => {
+    try {
+      const response = await apiClient.get('/auth/verify', {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+      return response.data.valid;
+    } catch (error) {
+      console.error('Token verification failed:', error);
+      return false;
+    }
+  },
+
+  getAuthInfo: async () => {
+    try {
+      const response = await apiClient.get('/auth/info');
+      return response.data;
+    } catch (error) {
+      console.error('Failed to get auth info:', error);
+      throw error;
+    }
+  },
+};
+
+// Configure axios interceptor to add token to requests
+apiClient.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('admin_token');
+    if (token && !config.url.includes('/auth/')) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
+
+// Response interceptor to handle auth errors
+apiClient.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response?.status === 401) {
+      localStorage.removeItem('admin_token');
+      window.location.href = '/admin';
+    }
+    return Promise.reject(error);
+  }
+);
+
 // General API health check
 export const healthCheck = async () => {
   try {
