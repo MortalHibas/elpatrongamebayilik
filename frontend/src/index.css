@@ -2,9 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import Google Fonts for Gaming Aesthetic */
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
 body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
         "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
         "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -16,7 +19,34 @@ code {
         monospace;
 }
 
+/* Custom styles for gaming aesthetic */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+}
 
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for dark theme */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #101828;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #00C6FF, #00FF7F);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #00A8D8, #00E06B);
+}
 
 @layer base {
   :root {
@@ -74,8 +104,6 @@ code {
     }
 }
 
-
-
 @layer base {
   * {
     @apply border-border;
@@ -83,4 +111,43 @@ code {
   body {
     @apply bg-background text-foreground;
     }
+}
+
+/* Custom animations for gaming feel */
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(0, 198, 255, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(0, 255, 127, 0.4);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.animate-glow {
+    animation: glow 3s ease-in-out infinite;
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Enhance text selection */
+::selection {
+    background-color: rgba(0, 198, 255, 0.3);
+    color: white;
+}
+
+/* Custom focus states */
+.focus-visible:focus-visible {
+    outline: 2px solid #00C6FF;
+    outline-offset: 2px;
 }
