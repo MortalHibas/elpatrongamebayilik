@@ -1,7 +1,8 @@
 import React from 'react';
 import { Button } from './ui/button';
 import { Rocket, Star } from 'lucide-react';
-import { finalCtaData, adminData } from '../data/mock';
+import { finalCtaData } from '../data/mock';
+import useSettings from '../hooks/useSettings';
 
 const FinalCTASection = ({ onCTA }) => {
   return (
