@@ -105,7 +105,7 @@ const PricingSection = ({ onPackageSelect }) => {
                   
                   {/* Hover Glow Effect */}
                   <div className={`absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl pointer-events-none ${
-                    pkg.popular
+                    pkg.popular || (settings && settings.popularPackageIndex === index)
                       ? 'from-[#00C6FF]/10 to-[#00FF7F]/10'
                       : 'from-[#00C6FF]/5 to-[#00FF7F]/5'
                   }`}></div>
