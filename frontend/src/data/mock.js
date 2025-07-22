@@ -153,9 +153,8 @@ export const footerData = {
   companyName: "El Patron Game",
   description: "Valorant hesap tedariğinde Türkiye'nin en güvenilir bayilik sistemi.",
   contact: {
-    discord: "https://discord.gg/elpatrongame",
-    telegram: "https://t.me/elpatrongame",
-    whatsapp: "https://wa.me/905551234567"
+    whatsapp: "https://wa.me/905551234567",
+    telegram: "https://t.me/elpatrongame"
   },
   legal: {
     terms: "Hizmet Şartları",
