@@ -324,11 +324,11 @@ const AdminPanel = () => {
                       Fiyatlandırma Bölümü İndirim Metni
                     </label>
                     <Input
-                      value={settings.discountText}
+                      value={localSettings.discountText || ''}
                       onChange={(e) => handleSettingChange('discountText', e.target.value)}
                       placeholder="Özel İndirim: İlk Ay %50"
                       className="bg-[#101828] border-[#00C6FF]/20 text-white focus:border-[#00C6FF]"
-                      disabled={!settings.showDiscounts}
+                      disabled={!localSettings.showDiscounts}
                     />
                   </div>
 
