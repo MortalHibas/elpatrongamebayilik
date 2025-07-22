@@ -263,7 +263,7 @@ const AdminPanel = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
-                  {Object.entries(packageLinks).map(([packageType, link]) => {
+                  {Object.entries(localPackageLinks).map(([packageType, link]) => {
                     const packageName = packageType === 'basic' ? 'Basic Paket' 
                                       : packageType === 'orta' ? 'Orta Paket' 
                                       : 'Lüks Paket';
