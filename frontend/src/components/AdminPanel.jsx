@@ -7,7 +7,11 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import { Badge } from './ui/badge';
 import { Switch } from './ui/switch';
 import { Settings, Package, FileText, Link, ArrowLeft, Save, Eye, Percent } from 'lucide-react';
-import { adminData, pricingData } from '../data/mock';
+import { pricingData } from '../data/mock';
+import useSettings from '../hooks/useSettings';
+import usePackageLinks from '../hooks/usePackageLinks';
+import useLegalTexts from '../hooks/useLegalTexts';
+import LoadingSpinner from './LoadingSpinner';
 
 const AdminPanel = () => {
   const [settings, setSettings] = useState(adminData.settings);
