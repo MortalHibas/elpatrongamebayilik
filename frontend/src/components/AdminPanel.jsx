@@ -14,27 +14,76 @@ import useLegalTexts from '../hooks/useLegalTexts';
 import LoadingSpinner from './LoadingSpinner';
 
 const AdminPanel = () => {
-  const [settings, setSettings] = useState(adminData.settings);
-  const [packageLinks, setPackageLinks] = useState(adminData.packageLinks);
-  const [legalTexts, setLegalTexts] = useState(adminData.legalTexts);
-  const [showPreview, setShowPreview] = useState(false);
+  const [activeTab, setActiveTab] = useState('settings');
+  const [saveMessage, setSaveMessage] = useState('');
+  
+  // Use custom hooks for backend data
+  const { settings, loading: settingsLoading, updateSettings } = useSettings();
+  const { packageLinks, loading: packageLinksLoading, updatePackageLinks } = usePackageLinks();
+  const { legalTexts, loading: legalTextsLoading, updateLegalTexts } = useLegalTexts();
+
+  // Local state for form data
+  const [localSettings, setLocalSettings] = useState({});
+  const [localPackageLinks, setLocalPackageLinks] = useState({});
+  const [localLegalTexts, setLocalLegalTexts] = useState({});
+
+  // Update local state when backend data loads
+  React.useEffect(() => {
+    if (settings) {
+      setLocalSettings(settings);
+    }
+  }, [settings]);
+
+  React.useEffect(() => {
+    if (packageLinks) {
+      setLocalPackageLinks(packageLinks);
+    }
+  }, [packageLinks]);
+
+  React.useEffect(() => {
+    if (legalTexts) {
+      setLocalLegalTexts(legalTexts);
+    }
+  }, [legalTexts]);
 
   const handleSettingChange = (key, value) => {
-    setSettings(prev => ({ ...prev, [key]: value }));
+    setLocalSettings(prev => ({ ...prev, [key]: value }));
   };
 
   const handlePackageLinkChange = (packageType, value) => {
-    setPackageLinks(prev => ({ ...prev, [packageType]: value }));
+    setLocalPackageLinks(prev => ({ ...prev, [packageType]: value }));
   };
 
   const handleLegalTextChange = (textType, value) => {
-    setLegalTexts(prev => ({ ...prev, [textType]: value }));
+    setLocalLegalTexts(prev => ({ ...prev, [textType]: value }));
   };
 
-  const handleSave = () => {
-    // Mock save functionality
-    console.log('Settings saved:', { settings, packageLinks, legalTexts });
-    alert('Ayarlar başarıyla kaydedildi!');
+  const handleSave = async () => {
+    try {
+      setSaveMessage('Kaydediliyor...');
+      
+      // Save settings
+      if (JSON.stringify(localSettings) !== JSON.stringify(settings)) {
+        await updateSettings(localSettings);
+      }
+      
+      // Save package links
+      if (JSON.stringify(localPackageLinks) !== JSON.stringify(packageLinks)) {
+        await updatePackageLinks(localPackageLinks);
+      }
+      
+      // Save legal texts
+      if (JSON.stringify(localLegalTexts) !== JSON.stringify(legalTexts)) {
+        await updateLegalTexts(localLegalTexts);
+      }
+      
+      setSaveMessage('Ayarlar başarıyla kaydedildi! ✅');
+      setTimeout(() => setSaveMessage(''), 3000);
+    } catch (error) {
+      console.error('Save failed:', error);
+      setSaveMessage('Kaydetme başarısız oldu! ❌');
+      setTimeout(() => setSaveMessage(''), 3000);
+    }
   };
 
   const goBackToSite = () => {
