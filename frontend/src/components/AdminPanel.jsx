@@ -400,7 +400,7 @@ const AdminPanel = () => {
                       Gizlilik Politikası
                     </label>
                     <Textarea
-                      value={legalTexts.privacy}
+                      value={localLegalTexts.privacy || ''}
                       onChange={(e) => handleLegalTextChange('privacy', e.target.value)}
                       placeholder="Gizlilik politikanızı buraya yazın..."
                       className="bg-[#101828] border-[#00C6FF]/20 text-white focus:border-[#00C6FF] min-h-[200px]"
