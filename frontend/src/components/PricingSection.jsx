@@ -59,7 +59,7 @@ const PricingSection = ({ onPackageSelect }) => {
                     </h3>
                     <div className="mb-4">
                       <span className={`text-4xl font-bold ${
-                        pkg.popular 
+                        pkg.popular || (settings && settings.popularPackageIndex === index)
                           ? 'bg-gradient-to-r from-[#00C6FF] to-[#00FF7F] bg-clip-text text-transparent'
                           : 'text-white'
                       }`}>
