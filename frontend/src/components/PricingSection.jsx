@@ -73,7 +73,7 @@ const PricingSection = ({ onPackageSelect }) => {
                     {pkg.features.map((feature, featureIndex) => (
                       <div key={featureIndex} className="flex items-start gap-3">
                         <div className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5 ${
-                          pkg.popular
+                          pkg.popular || (settings && settings.popularPackageIndex === index)
                             ? 'bg-gradient-to-r from-[#00C6FF] to-[#00FF7F]'
                             : 'bg-[#00C6FF]/20 border border-[#00C6FF]/30'
                         }`}>
