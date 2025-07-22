@@ -274,7 +274,7 @@ const AdminPanel = () => {
                           {packageName} Düğme Linki
                         </label>
                         <Input
-                          value={link}
+                          value={link || ''}
                           onChange={(e) => handlePackageLinkChange(packageType, e.target.value)}
                           placeholder="https://example.com/signup"
                           className="bg-[#101828] border-[#00C6FF]/20 text-white focus:border-[#00C6FF]"
