@@ -39,7 +39,7 @@ const PricingSection = ({ onPackageSelect }) => {
                 } transition-all duration-500`}
               >
                 {/* Popular Badge */}
-                {pkg.popular && (
+                {(pkg.popular || (settings && settings.popularPackageIndex === index)) && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-20">
                     <div className="px-6 py-2 bg-gradient-to-r from-[#FF4D4D] to-[#00C6FF] text-white font-bold rounded-full text-sm">
                       EN POPÜLER
