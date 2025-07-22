@@ -81,10 +81,10 @@ const FinalCTASection = ({ onCTA }) => {
           </div>
           
           {/* Bottom Message */}
-          {adminData.settings.showDiscounts && (
+          {settings && settings.showDiscounts && (
             <div className="mt-16 p-8 bg-gradient-to-r from-[#00C6FF]/5 to-[#00FF7F]/5 border border-[#00C6FF]/20 rounded-3xl backdrop-blur-sm">
               <h3 className="text-2xl font-bold text-white mb-4">
-                {adminData.settings.finalDiscountText}
+                {settings.finalDiscountText}
               </h3>
               <p className="text-gray-400 text-lg">
                 Bu fırsatı kaçırma! Şu anda {Math.floor(Math.random() * 30 + 70)} kişi sistemi inceliyor.
