@@ -211,7 +211,7 @@ const AdminPanel = () => {
                       WhatsApp Numarası
                     </label>
                     <Input
-                      value={settings.whatsappNumber}
+                      value={localSettings.whatsappNumber || ''}
                       onChange={(e) => handleSettingChange('whatsappNumber', e.target.value)}
                       placeholder="905551234567"
                       className="bg-[#101828] border-[#00C6FF]/20 text-white focus:border-[#00C6FF]"
