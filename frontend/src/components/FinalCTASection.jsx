@@ -78,20 +78,22 @@ const FinalCTASection = ({ onCTA }) => {
           </div>
           
           {/* Bottom Message */}
-          <div className="mt-16 p-8 bg-gradient-to-r from-[#00C6FF]/5 to-[#00FF7F]/5 border border-[#00C6FF]/20 rounded-3xl backdrop-blur-sm">
-            <h3 className="text-2xl font-bold text-white mb-4">
-              ⚡ Sınırlı Süre: İlk 100 Kayıt %50 İndirim
-            </h3>
-            <p className="text-gray-400 text-lg">
-              Bu fırsatı kaçırma! Şu anda {Math.floor(Math.random() * 30 + 70)} kişi sistemi inceliyor.
-            </p>
-            <div className="mt-4 flex justify-center">
-              <div className="flex items-center gap-2 px-4 py-2 bg-[#FF4D4D]/10 border border-[#FF4D4D]/20 rounded-full">
-                <div className="w-3 h-3 bg-[#FF4D4D] rounded-full animate-pulse"></div>
-                <span className="text-[#FF4D4D] font-semibold">Son 24 Saatte 15 Kayıt</span>
+          {adminData.settings.showDiscounts && (
+            <div className="mt-16 p-8 bg-gradient-to-r from-[#00C6FF]/5 to-[#00FF7F]/5 border border-[#00C6FF]/20 rounded-3xl backdrop-blur-sm">
+              <h3 className="text-2xl font-bold text-white mb-4">
+                {adminData.settings.finalDiscountText}
+              </h3>
+              <p className="text-gray-400 text-lg">
+                Bu fırsatı kaçırma! Şu anda {Math.floor(Math.random() * 30 + 70)} kişi sistemi inceliyor.
+              </p>
+              <div className="mt-4 flex justify-center">
+                <div className="flex items-center gap-2 px-4 py-2 bg-[#FF4D4D]/10 border border-[#FF4D4D]/20 rounded-full">
+                  <div className="w-3 h-3 bg-[#FF4D4D] rounded-full animate-pulse"></div>
+                  <span className="text-[#FF4D4D] font-semibold">Son 24 Saatte 15 Kayıt</span>
+                </div>
               </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </section>
