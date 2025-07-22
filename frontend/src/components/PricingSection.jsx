@@ -48,7 +48,7 @@ const PricingSection = ({ onPackageSelect }) => {
                 )}
                 
                 <div className={`relative p-8 rounded-3xl backdrop-blur-sm transition-all duration-500 ${
-                  pkg.popular
+                  pkg.popular || (settings && settings.popularPackageIndex === index)
                     ? 'bg-gradient-to-br from-[#00C6FF]/10 to-[#00FF7F]/10 border-2 border-[#00C6FF]/50 shadow-2xl shadow-[#00C6FF]/20'
                     : 'bg-gradient-to-br from-[#1a1f35]/50 to-[#101828]/50 border border-[#00C6FF]/10 hover:border-[#00C6FF]/30'
                 }`}>
