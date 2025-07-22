@@ -19,10 +19,10 @@ const PricingSection = ({ onPackageSelect }) => {
             <p className="text-xl text-gray-400 mb-4">
               {pricingData.subtitle}
             </p>
-            {adminData.settings.showDiscounts && (
+            {settings && settings.showDiscounts && (
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#00FF7F]/10 border border-[#00FF7F]/20 rounded-full">
                 <Star className="w-4 h-4 text-[#00FF7F]" />
-                <span className="text-[#00FF7F] font-semibold">{adminData.settings.discountText}</span>
+                <span className="text-[#00FF7F] font-semibold">{settings.discountText}</span>
               </div>
             )}
           </div>
