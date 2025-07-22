@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { MessageCircle, X } from 'lucide-react';
-import { adminData } from '../data/mock';
+import useSettings from '../hooks/useSettings';
 
 const WhatsAppButton = () => {
   const [isHovered, setIsHovered] = useState(false);
