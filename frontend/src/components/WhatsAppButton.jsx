@@ -4,9 +4,11 @@ import useSettings from '../hooks/useSettings';
 
 const WhatsAppButton = () => {
   const [isHovered, setIsHovered] = useState(false);
+  const { settings } = useSettings();
 
   const handleClick = () => {
-    const whatsappUrl = `https://wa.me/${adminData.settings.whatsappNumber}?text=Merhaba,%20Valorant%20bayilik%20sistemi%20hakkında%20bilgi%20almak%20istiyorum.`;
+    const whatsappNumber = settings?.whatsappNumber || "905551234567";
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Merhaba,%20Valorant%20bayilik%20sistemi%20hakkında%20bilgi%20almak%20istiyorum.`;
     window.open(whatsappUrl, '_blank');
   };
 
