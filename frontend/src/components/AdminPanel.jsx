@@ -312,7 +312,7 @@ const AdminPanel = () => {
                       <p className="text-sm text-gray-400">Sitedeki tüm indirim bölümlerini göster/gizle</p>
                     </div>
                     <Switch 
-                      checked={settings.showDiscounts}
+                      checked={localSettings.showDiscounts || false}
                       onCheckedChange={(checked) => handleSettingChange('showDiscounts', checked)}
                       className="data-[state=checked]:bg-[#00C6FF]"
                     />
