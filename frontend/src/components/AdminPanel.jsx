@@ -5,7 +5,8 @@ import { Textarea } from './ui/textarea';
 import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import { Badge } from './ui/badge';
-import { Settings, Package, FileText, Link, ArrowLeft, Save, Eye } from 'lucide-react';
+import { Switch } from './ui/switch';
+import { Settings, Package, FileText, Link, ArrowLeft, Save, Eye, Percent } from 'lucide-react';
 import { adminData, pricingData } from '../data/mock';
 
 const AdminPanel = () => {
