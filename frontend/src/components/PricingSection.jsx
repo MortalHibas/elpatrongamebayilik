@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from './ui/button';
 import { Check, Star } from 'lucide-react';
-import { pricingData } from '../data/mock';
+import { pricingData, adminData } from '../data/mock';
 
 const PricingSection = ({ onPackageSelect }) => {
   return (
