@@ -190,14 +190,14 @@ const AdminPanel = () => {
                           key={index}
                           onClick={() => handleSettingChange('popularPackageIndex', index)}
                           className={`p-4 rounded-xl border-2 transition-all duration-300 ${
-                            settings.popularPackageIndex === index
+                            localSettings.popularPackageIndex === index
                               ? 'border-[#00C6FF] bg-[#00C6FF]/10 text-[#00C6FF]'
                               : 'border-[#00C6FF]/20 bg-[#1a1f35]/30 text-gray-400 hover:border-[#00C6FF]/40'
                           }`}
                         >
                           <div className="text-sm font-semibold">{pkg.name}</div>
                           <div className="text-xs opacity-75">{pkg.price}</div>
-                          {settings.popularPackageIndex === index && (
+                          {localSettings.popularPackageIndex === index && (
                             <Badge className="mt-2 bg-[#00C6FF] text-white">Aktif</Badge>
                           )}
                         </button>
