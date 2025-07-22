@@ -33,7 +33,7 @@ const PricingSection = ({ onPackageSelect }) => {
               <div 
                 key={index}
                 className={`relative group ${
-                  pkg.popular 
+                  pkg.popular || (settings && settings.popularPackageIndex === index)
                     ? 'transform scale-105 z-10' 
                     : 'hover:transform hover:scale-105'
                 } transition-all duration-500`}
