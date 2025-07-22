@@ -387,7 +387,7 @@ const AdminPanel = () => {
                       Hizmet Şartları
                     </label>
                     <Textarea
-                      value={legalTexts.terms}
+                      value={localLegalTexts.terms || ''}
                       onChange={(e) => handleLegalTextChange('terms', e.target.value)}
                       placeholder="Hizmet şartlarınızı buraya yazın..."
                       className="bg-[#101828] border-[#00C6FF]/20 text-white focus:border-[#00C6FF] min-h-[200px]"
