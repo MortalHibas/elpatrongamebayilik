@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
-import { faqData } from '../data/mock';
+import { faqData, footerData } from '../data/mock';
 
 const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState(0); // First question open by default
