@@ -5,6 +5,8 @@ import { pricingData } from '../data/mock';
 import useSettings from '../hooks/useSettings';
 
 const PricingSection = ({ onPackageSelect }) => {
+  const { settings } = useSettings();
+  
   return (
     <section className="py-24 bg-gradient-to-b from-[#0f1220] to-[#101828]">
       <div className="container mx-auto px-6">
